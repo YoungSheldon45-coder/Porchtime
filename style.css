@@ -1,0 +1,653 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: white;
+  box-sizing: border-box;
+}
+
+/* Apply Oswald for headings */
+h1,
+h2,
+h3 {
+  font-family: "Oswald", sans-serif;
+}
+
+/* Apply Montserrat for body text */
+body,
+p,
+a {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 70px;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+nav {
+  padding-right: 50px;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: all 0.2s ease-in;
+}
+
+.nav-links li a:hover {
+  color: red;
+  transform: scale(1.1);
+}
+
+/* Mobile Menu */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .logo h1 {
+    display: none;
+  }
+  .logo img {
+    width: 70px;
+    margin-right: 10px;
+    border-radius: 20px;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: black;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background: url("images/background.png") no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Adjust the opacity as needed */
+}
+
+/* Hero content remains on top with a fade-in effect */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.9
+  ); /* Optional: adds a slight background to text */
+  padding: 20px;
+  width: 50%;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 2s ease-in-out forwards;
+  animation-delay: 0.2s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Typewriter effect for the heading */
+.hero-content h2 {
+  font-family: "Courier New", Courier, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid #fff; /* Cursor effect */
+  width: 0; /* Start with no text visible */
+  animation: typing 3s steps(20, end) forwards,
+    blink-caret 0.75s step-end infinite;
+  margin-bottom: 20px;
+  max-width: fit-content;
+}
+
+/* Keyframes for typewriter animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Keyframes for blinking cursor */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h2 {
+    display: none;
+  }
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+}
+
+.feature-box {
+  text-align: center;
+  width: 30%;
+  object-fit: cover;
+}
+
+.feature-box img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.feature-box img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-box {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Expanded Services Section Styling */
+.expanded-services {
+  padding: 50px;
+  background: #222;
+  color: #fff;
+  text-align: center;
+}
+
+.expanded-services h2 {
+  color: red;
+  margin-bottom: 30px;
+}
+
+/* Flex container for service boxes */
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+/* Each service box */
+.service-box {
+  background: #333;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1 1 calc(33% - 40px);
+  max-width: 300px;
+  text-align: left;
+}
+
+.service-box h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.service-box p {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .service-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .service-box {
+    flex: 1 1 100%;
+    max-width: 90%;
+  }
+}
+
+.owner-story {
+  padding: 50px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.founders-images {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.founder {
+  margin: 10px;
+  text-align: center;
+}
+
+.founder img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.founder img:hover {
+  transform: scale(1.05);
+}
+
+.founder h3 {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.owner-text {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: left;
+}
+
+.owner-story h2 {
+  color: red;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.owner-text p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Read More Button aligned to the left */
+
+.owner-text a {
+  color: #fff;
+}
+.read-more {
+  display: inline-block;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.read-more:hover {
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .founders-images {
+    display: none;
+  }
+  .founder {
+    width: 100%;
+  }
+  .owner-text {
+    padding: 10px;
+  }
+}
+
+/* Contact Section */
+#contact {
+  text-align: center;
+  padding: 60px 20px;
+  background: #222;
+  color: white;
+}
+
+#contact h2 {
+  font-size: 2em;
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 600px;
+  margin: 20px auto;
+  background: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.3);
+}
+
+.contact-form h3 {
+  color: red;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid red;
+  border-radius: 5px;
+  background: #333;
+  color: white;
+  font-size: 1em;
+  margin-top: 8px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #bbb;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: red;
+  color: black;
+  border: none;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: white;
+  color: red;
+}
+
+/* Footer */
+footer {
+  background: black;
+  padding: 20px;
+  text-align: center;
+}
+
+#contact a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-box {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .about-services {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about,
+  .services {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Owner's Story */
+.owner-story {
+  background: #222;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.owner-content {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+}
+
+.owner-content img {
+  width: 230px;
+  height: auto;
+  border-radius: 100%;
+  margin-right: 30px;
+}
+
+.owner-text h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.owner-text p {
+  font-size: 16px;
+  color: #bbb;
+}
+
+.owner-text a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: red;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .owner-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Expanded Services */
+.expanded-services {
+  background: #111;
+  padding: 50px;
+  text-align: center;
+}
+
+.service-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.service-box {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40%;
+  min-width: 200px;
+  margin: 17px;
+  transition: all 0.3s ease-in-out;
+}
+
+.service-box:hover {
+  background: red;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Testimonials */
+.testimonials {
+  background: #111;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  margin: auto;
+  padding: 1px 0;
+}
+
+.testimonial {
+  min-width: 300px;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  text-align: center;
+  scroll-snap-align: center;
+}
+
+.testimonial p {
+  font-size: 18px;
+  font-style: italic;
+  color: #ccc;
+}
+
+.testimonial h4 {
+  margin-top: 10px;
+  color: red;
+}
+
+/* Custom Scrollbar for Testimonials */
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  width: 80%;
+  margin: auto;
+  padding: 20px 0;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: red black; /* Firefox */
+}
+
+/* Scrollbar for Webkit Browsers (Chrome, Edge, Safari) */
+.testimonial-slider::-webkit-scrollbar {
+  height: 8px; /* Slimmer scrollbar */
+}
+
+.testimonial-slider::-webkit-scrollbar-track {
+  background: black; /* Dark background to match theme */
+  border-radius: 5px;
+}
+
+.testimonial-slider::-webkit-scrollbar-thumb {
+  background: red; /* Red scrollbar thumb */
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+.testimonial-slider::-webkit-scrollbar-thumb:hover {
+  background: #ff4444; /* Brighter red on hover */
+}

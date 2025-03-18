@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Porch Time Records</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Montserrat:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Basic Reset & Body Styling */
+      body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #111;
+        color: #fff;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #000;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      .logo img {
+        width: 50px;
+        margin-right: 10px;
+      }
+      .logo h1 {
+        margin: 0;
+        font-size: 1.5em;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li {
+        margin-left: 20px;
+      }
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      nav ul li a:hover {
+        color: red;
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+      }
+      
+      /* Hero Section with Typewriter Animation */
+      .hero {
+        position: relative;
+        background: url("images/background.png") no-repeat center center/cover;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 80%;
+        animation: fadeIn 2s ease-in-out forwards;
+        opacity: 0;
+      }
+      .hero-content h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 3em;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 4px solid #fff;
+        width: 0;
+        animation: typing 3s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+      }
+      .hero-content p {
+        margin-top: 20px;
+        font-size: 1.2em;
+      }
+      
+      /* About Us Content Section */
+      .about-us {
+        padding: 50px;
+        background: #222;
+        border-radius: 10px;
+        margin: 30px auto;
+        width: 80%;
+        animation: slideUp 1.5s ease-out forwards;
+        opacity: 0;
+      }
+      .about-us h3 {
+        color: red;
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+      .about-us p {
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      
+      /* Footer Styling */
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #000;
+      }
+      
+      /* Animations */
+      @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+      @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: #fff; }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      
+      /* Responsive Navigation (Optional) */
+      @media (max-width: 768px) {
+        nav ul {
+          flex-direction: column;
+          display: none;
+        }
+        nav ul.active {
+          display: block;
+        }
+        .hamburger {
+          display: block;
+          color: #fff;
+          font-size: 1.5em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <img src="images/logo.jpg" alt="Porch Time Records Logo" />
+        <h1>Porch Time Records</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="studio.html">Studio</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Our Story</h2>
+        <p>Discover the passion behind Porch Time Records.</p>
+      </div>
+    </section>
+
+    <!-- About Us Content -->
+    <section class="about-us">
+      <h3>About Porch Time Records</h3>
+      <p>
+        Porch Time Records was born from a shared vision and a deep love for Malawian music.
+        Founders Paul Kachala, Jeremy Koch, and Jean Dear recognized a powerful wave of talent in Malawi—artists with immense potential but limited access to professional music industry services.
+      </p>
+      <p>
+        Time and again, they witnessed musicians struggling to break through due to a lack of proper production, promotion, and industry support.
+      </p>
+      <p>
+        What began as casual yet passionate discussions on the khonde (porch) turned into a mission.
+        During these “porch time” conversations, they explored ways to bridge the gap and create real opportunities for Malawian artists.
+        From those talks, Porch Time Records was born—a label dedicated to empowering musicians, refining their craft, and amplifying their voices on both national and international stages.
+      </p>
+      <p>
+        Our name is more than just a label; it’s a testament to the countless hours spent dreaming, planning, and building a future where Malawian music gets the recognition it deserves.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Porch Time Records. All rights reserved.</p>
+    </footer>
+
+    <!-- Optional JavaScript for Hamburger Menu -->
+    <script>
+      function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>
